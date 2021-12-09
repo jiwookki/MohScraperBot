@@ -11,6 +11,14 @@ driver_options = webdriver.firefox.options.Options()
 driver_options.add_argument('--headless')
 driver_options.add_argument("--disable-gpu")
 
+if platform.system() == "Linux":
+    execpath = "geckodriver"
+elif platform.system() == "Windows":
+    execpath = "C:/Users/jiwoo/geckodriver.exe"
+else:
+    raise Exception("remember to add geckodriver executable to PATH, me.")
+
+
 
 class ScrapedPage():
     def __init__(self, url):
@@ -20,9 +28,9 @@ class ScrapedPage():
        #self.text = urllib.requests.urlopen(self.url).read()
        #self.soup = BeautifulSoup(self.text, "lxml")
     def quit(self):
-    	self.browser.quit()
+        self.browser.quit()
     def reopen_page(self):
-    	self.browser = webdriver.Firefox(executable_path = execpath, options=driver_options)
+        self.browser = webdriver.Firefox(executable_path = execpath, options=driver_options)
         self.browser.get(url)
 
 class CovidScraper(ScrapedPage):
@@ -38,4 +46,4 @@ class CovidScraper(ScrapedPage):
 
 
 
-    	
+        

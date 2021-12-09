@@ -15,12 +15,13 @@ url="" # Insert Discord Webhook URL here
 
 
 def main():
-	scraper = scraping.CovidScraper()
+    global url
+    scraper = scraping.CovidScraper()
 
 
-	while True:
+    while True:
 
-		discmessage = DiscordEmbed(title="Daily SG Covid-19 Update", color='ed2939')
+        discmessage = DiscordEmbed(title="Daily SG Covid-19 Update", color='ed2939')
     
         discmessage.set_footer(name='MohScraperBot by JiBot#7904')
     
@@ -40,4 +41,4 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+    main()
