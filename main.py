@@ -35,7 +35,9 @@ def main():
         scraper.quit()
 
         time.sleep(86400)
-        
+
         scraper.reopen_page()
 
 
+if __name__ == "__main__":
+	main()
