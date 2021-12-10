@@ -25,13 +25,13 @@ class ScrapedPage():
         self.url = url
         self.browser = webdriver.Firefox(executable_path = execpath, options=driver_options)
         self.browser.get(url)
-       #self.text = urllib.requests.urlopen(self.url).read()
+       #self.text = urllib.requests.urlopen(self.url).read() 
        #self.soup = BeautifulSoup(self.text, "lxml")
     def quit(self):
         self.browser.quit()
     def reopen_page(self):
         self.browser = webdriver.Firefox(executable_path = execpath, options=driver_options)
-        self.browser.get(url)
+        self.browser.get(self.url)
 
 class CovidScraper(ScrapedPage):
     def __init__(self, url='https://www.gov.sg/features/covid-19'):
