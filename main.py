@@ -8,7 +8,7 @@ import scraping
 
 
 
-url="" # Insert Discord Webhook URL here
+url_list=["", ""] # Insert Discord Webhook URLs here
 
 
 
@@ -28,10 +28,10 @@ def main():
         discmessage.set_timestamp()
         discmessage.add_embed_field(name="Update", value=scraper.getcontents())
 
-    
-        webhook = DiscordWebhook(url=url, username = "COVID-19 Updates")
-        webhook.add_embed(discmessage)
-        response = webhook.execute()
+        for url in url_list:
+            webhook = DiscordWebhook(url=url, username = "COVID-19 Updates")
+            webhook.add_embed(discmessage)
+            response = webhook.execute()
 
         scraper.quit()
 
